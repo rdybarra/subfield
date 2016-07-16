@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subfield Example</title>
+</head>
+<body>
+
+  <form>
+    <label>
+      <span>Favorite Food</span>
+      <select id="favorite-food">
+        <option value="mexican">Mexican</option>
+        <option value="pizza">Pizza</option>
+        <option value="hamburger">Hamburger</option>
+      </select>
+    </label>
+
+    <div class="subfield" data-watch="#favorite-food" data-parent-value="pizza">
+      <label>
+        <span>Toppings:</span>
+        <input type="text" value="">
+      </label>
+    </div>
+  </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="/build/subfield.jquery.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.subfield').subfield();
+    });
+  </script>
+
+</body>
+</html>
+
