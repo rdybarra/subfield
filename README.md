@@ -10,6 +10,7 @@ Watches fields for changes. If a field's value ever matches what the correspondi
 
 ### Markup
 Each subfield must contain 3 things:
+
 1. A CSS selector that can `jQuery` can use to select the item (e.g. `class="subfield"`)
 2. A data attribute titled `data-watch` which contains the CSS selector of the parent field.
 3. A data attribute titled `data-parent-value` which contains the value that the parent field should have before the subfield is shown.
@@ -29,13 +30,14 @@ If you notice, the subfield designation can be applied to any arbitrary HTML ele
 
 ```
  $('.subfield').subfield();
-```  
+```
 
 In the above example `.subfield` is just a CSS selector. You could easily use any other CSS selector.
 
 ## Complete Example
 In the following example, the `toppings` field will show only when the `favorite-food` field has the value `pizza` selected.
 
+```
 <form>
   <label>
     <span>Favorite Food</span>
