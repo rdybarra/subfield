@@ -1,27 +1,34 @@
-## Show and hide a subfield depending on the value of another field
+## Show and hide a DOM element depending on the value of a field
 
-Watches fields for changes. If a field's value ever matches what the corresponding subfield is configured to look for, then the subfield will show. Otherwise, it is hidden.
+Watches fields for changes. If a field's value ever matches what the watching element is configured to look for, then the watching element will show, otherwise it will be hidden.
+
+## Use-case examples
+### Hide a field unless a field is has a certain value
+![Select Filter](http://rdybarra.com/images/hidden-field.gif)
+
+### Hide field options unless a field has a certain value
+![Select Filter](http://rdybarra.com/images/select-filter.gif)
 
 ## Usage
 
-### Terminology 
-`subfield` - a field that is shown/hidden depending on another field's value.
-`parent` - a field that when set to a specific value, triggers the display of a subfield.
+### Terminology
+`watching element` - an element that is shown/hidden depending on a field's value.
+`watch field` - a field that when set to a specific value, triggers the display of a watching element.
 
 ### Markup
-Each subfield must contain 3 things:
+Each watching element must contain 3 things:
 
 1. A CSS selector that can `jQuery` can use to select the item (e.g. `class="subfield"`)
-2. A data attribute titled `data-watch` which contains the CSS selector of the parent field.
-3. A data attribute titled `data-parent-value` which contains the value that the parent field should have before the subfield is shown.
+2. A data attribute titled `data-watch-field` which contains the CSS selector of the watch field.
+3. A data attribute titled `data-watch-field-value` which contains the value that the watch field should have before the watching element is shown.
 
 **Example:**
 
 ```
-<div class="subfield" data-watch="#favorite-food" data-parent-value="pizza">
+<div class="watching-element" data-watch="#favorite-food" data-parent-value="pizza">
 ```
 
-If you notice, the subfield designation can be applied to any arbitrary HTML element. It does not need to be applied directly to the field.
+If you notice, the watching element designation can be applied to any arbitrary HTML element. It does not need to be applied directly to a field.
 
 ### Javascript
 1. Include jquery (tested with jquery 3)
@@ -29,10 +36,10 @@ If you notice, the subfield designation can be applied to any arbitrary HTML ele
 3. When ready, fire-off the plugin
 
 ```
- $('.subfield').subfield();
+ $('.watching-element').watchAndReveal();
 ```
 
-In the above example `.subfield` is just a CSS selector. You could easily use any other CSS selector.
+In the above example `.watching-element` is just a CSS selector. You could easily use any other CSS selector.
 
 ## Complete Example
 In the following example, the `toppings` field will show only when the `favorite-food` field has the value `pizza` selected.
@@ -48,7 +55,7 @@ In the following example, the `toppings` field will show only when the `favorite
     </select>
   </label>
 
-  <div class="subfield" data-watch="#favorite-food" data-parent-value="pizza">
+  <div class="subfield" data-watch-field="#favorite-food" data-watch-fiel-value="pizza">
     <label>
       <span>Toppings:</span>
       <input type="text" name="toppings" value="">
@@ -61,7 +68,7 @@ In the following example, the `toppings` field will show only when the `favorite
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.subfield').subfield();
+    $('.watching-element').watchAndReveal();
   });
 </script>
 ```
@@ -70,5 +77,5 @@ In the following example, the `toppings` field will show only when the `favorite
 This is how I build:
 
 ```
-babel src/subfield.jquery.js -o build/subfield.jquery.js --watch
-```   
+babel src/watch-and-reveal.jquery.js -o build/watch-and-reveal.jquery.js --watch
+```
