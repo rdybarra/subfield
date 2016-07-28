@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Subfield Example</title>
+  <title>Watch And Reveal Example</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
       </select>
     </label>
 
-    <div class="subfield" data-watch="#favorite-food" data-parent-value="pizza">
+    <div class="field-watcher" data-watch-field="#favorite-food" data-watch-field-value="pizza">
       <label>
         <span>Toppings:</span>
         <input type="text" value="">
@@ -39,13 +39,13 @@
       <label>
         <span>Favorite Type</span>
         <select id="favorite-food" name="type">
-          <option value="" data-filter-persist="true">Select a favorite type</option>
-          <option class="subfield" value="burritos" data-watch="#favorite-food-type" data-parent-value="mexican">Burritos</option>
-          <option class="subfield" value="tacos" data-watch="#favorite-food-type" data-parent-value="mexican">Tacos</option>
-          <option class="subfield" value="pizza" data-watch="#favorite-food-type" data-parent-value="italian">Pizza</option>
-          <option class="subfield" value="pasta" data-watch="#favorite-food-type" data-parent-value="italian">Pasta</option>
-          <option class="subfield" value="hamburger" data-watch="#favorite-food-type" data-parent-value="american">Hamburger</option>
-          <option class="subfield" value="hot dog" data-watch="#favorite-food-type" data-parent-value="american">Hot Dog</option>
+          <option value="">Select a favorite type</option>
+          <option class="field-watcher" value="burritos" data-watch-field="#favorite-food-type" data-watch-field-value="mexican">Burritos</option>
+          <option class="field-watcher" value="tacos" data-watch-field="#favorite-food-type" data-watch-field-value="mexican">Tacos</option>
+          <option class="field-watcher" value="pizza" data-watch-field="#favorite-food-type" data-watch-field-value="italian">Pizza</option>
+          <option class="field-watcher" value="pasta" data-watch-field="#favorite-food-type" data-watch-field-value="italian">Pasta</option>
+          <option class="field-watcher" value="hamburger" data-watch-field="#favorite-food-type" data-watch-field-value="american">Hamburger</option>
+          <option class="field-watcher" value="hot dog" data-watch-field="#favorite-food-type" data-watch-field-value="american">Hot Dog</option>
         </select>
       </label>
     </div>
@@ -57,11 +57,11 @@
   </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="/build/subfield.jquery.js"></script>
+  <script src="/build/watch-and-reveal.jquery.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {
-      $('.subfield').subfield();
+      $('.field-watcher').watchAndReveal();
     });
   </script>
 
