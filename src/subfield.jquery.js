@@ -54,6 +54,19 @@
         pair.$subfield.show();
       } else {
         pair.$subfield.hide();
+        this.clearValues(pair.$subfield);
+      }
+    },
+
+    clearValues: function($subfield) {
+      if ($subfield[0].localName === 'option') {
+        $subfield.prop('selected', false);
+      } else if ($subfield[0].localName === 'input' || $subfield[0].localName === 'textarea') {
+        $subfield.val('');
+      } else {
+        // Clear any values within the subfield.
+        $subfield.find('option').prop('selected', false);
+        $subfield.find('input, texarea').val('');
       }
     },
 

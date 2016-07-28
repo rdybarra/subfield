@@ -21,6 +21,39 @@
         <input type="text" value="">
       </label>
     </div>
+
+    <hr>
+
+    <div>
+      <label>
+        <span>Favorite Food</span>
+        <select id="favorite-food-type" name="genre">
+          <option value="mexican">Mexican</option>
+          <option value="italian">Italian</option>
+          <option value="american">American</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <span>Favorite Type</span>
+        <select id="favorite-food" name="type">
+          <option value="" data-filter-persist="true">Select a favorite type</option>
+          <option class="subfield" value="burritos" data-watch="#favorite-food-type" data-parent-value="mexican">Burritos</option>
+          <option class="subfield" value="tacos" data-watch="#favorite-food-type" data-parent-value="mexican">Tacos</option>
+          <option class="subfield" value="pizza" data-watch="#favorite-food-type" data-parent-value="italian">Pizza</option>
+          <option class="subfield" value="pasta" data-watch="#favorite-food-type" data-parent-value="italian">Pasta</option>
+          <option class="subfield" value="hamburger" data-watch="#favorite-food-type" data-parent-value="american">Hamburger</option>
+          <option class="subfield" value="hot dog" data-watch="#favorite-food-type" data-parent-value="american">Hot Dog</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <input type="submit" value="Submit">
+    </div>
+
   </form>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
