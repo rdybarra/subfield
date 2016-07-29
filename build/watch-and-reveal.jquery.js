@@ -14,8 +14,16 @@
 
 (function ($) {
 
-  $.fn.watchAndReveal = function () {
-    watchAndReveal.init(this);
+  $.fn.watchAndReveal = function (options) {
+    options = options || {};
+
+    var defaults = {
+      showOnEmpty: false
+    };
+
+    var settings = Object.assign(defaults, options);
+
+    watchAndReveal.init(this, settings);
   };
 
   var watchAndReveal = {
@@ -25,8 +33,9 @@
       $watchingElement: {}
     },
 
-    init: function init($elements) {
+    init: function init($elements, settings) {
       this.$elements = $elements;
+      this.settings = settings;
       this.establishPairs();
       this.setupEvents();
       this.initialCheck();
@@ -52,6 +61,10 @@
     checkValues: function checkValues(pair) {
       if (!pair.$watchedField || !pair.$watchingElement) {
         return;
+      }
+
+      if (this.settings.showOnEmpty && pair.$watchedField.val() == '') {
+        return pair.$watchingElement.show();
       }
 
       if (pair.$watchedField.val() == pair.$watchingElement.data('watch-field-value')) {

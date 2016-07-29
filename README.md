@@ -41,6 +41,18 @@ If you notice, the watching element designation can be applied to any arbitrary 
 
 In the above example `.watching-element` is just a CSS selector. You could easily use any other CSS selector.
 
+### Options
+
+Options can be set when initializing the plugin in jQuery:
+
+```
+$('.field-watcher').watchAndReveal({
+  showOnEmpty: true
+});
+```
+
+There is only one option: `showOnEmpty`. The default value is `false`. When set to `true`, the watching element will be made visible if the watch field is empty.
+
 ## Complete Example
 In the following example, the `toppings` field will show only when the `favorite-food` field has the value `pizza` selected.
 

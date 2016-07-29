@@ -28,6 +28,7 @@
       <label>
         <span>Favorite Food</span>
         <select id="favorite-food-type" name="genre">
+          <option value="">Choose a type</option>
           <option value="mexican">Mexican</option>
           <option value="italian">Italian</option>
           <option value="american">American</option>
@@ -61,7 +62,9 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-      $('.field-watcher').watchAndReveal();
+      $('.field-watcher').watchAndReveal({
+        showOnEmpty: true
+      });
     });
   </script>
 
